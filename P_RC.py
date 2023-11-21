@@ -18,12 +18,12 @@ model_params = {'tau': 0.25,
 
 res_params = {'radius':0.4,
              'degree': 100,
-             'sigma': 0.5,
+             'sigma': 1.0,
              'Dr': 4000,
              'train_length': 10000,
              'predict_length': 5000,
             'num_inputs': model_params['N'],
-             'beta': 0.000001
+             'beta': 0.00001
               }
 
 def generate_reservoir(size,radius,degree):
@@ -70,7 +70,7 @@ def predict(A, Win, res_params, states_nearfuture, Wout):
     predict = output_states.dot(Wout)
     return predict
 
-data = np.load('./data/lorenz_63_0.025_100000.npy')[0:15000]
+data = np.load('./data/lorenz_63.npy')
 states_nearfuture,Wout,A,Win = train_reservoir(res_params,data[:,shift_k:shift_k+res_params['train_length']])
 output = predict(A, Win,res_params,states_nearfuture,Wout)
 
