@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 shift_k = 0
 start_time = time.time()
-approx_res_size = 4000
+approx_res_size = 1000
 
 model_params = {'tau': 0.25,
                 'nstep': 1000,
@@ -19,7 +19,7 @@ model_params = {'tau': 0.25,
 res_params = {'radius':0.4,
              'degree': 100,
              'sigma': 1.0,
-             'Dr': 4000,
+             'Dr': 1000,
              'train_length': 10000,
              'predict_length': 5000,
             'num_inputs': model_params['N'],
